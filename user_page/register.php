@@ -32,6 +32,6 @@
     ?>
 
 <br>
-<button href='../test.html'>back</button>
+<a href="./register.html"><button>back</button></a>
 </body>
 </html>
