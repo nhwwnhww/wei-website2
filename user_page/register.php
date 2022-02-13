@@ -1,8 +1,21 @@
 <?php
 $conn = new mysqli("localhost","nhwwnhww","123Wjnhwwnhww","website");
 
-$sql = "INSERT INTO `user`(`username`, `real name`, `password`) VALUES ('". $_POST["username"]. "','". $_POST["realname"] ."','".$_POST["password"]."')";
+$username = $_POST['username'];
+$realname = $_POST['realname'];
+$password = $_POST['password'];
+
+$sql = "INSERT INTO `user`(`username`, `realname`, `password`)
+ VALUES ('$username','$realname','$password')";
 $result = $conn->query($sql);
 
-echo "Record Inserted";
-header("Location:../test.html");
+if (!$conn){
+    echo "error";
+}
+
+if (!$result){
+    echo "register error";
+}
+else {
+    header("Location:../test.html");
+}
