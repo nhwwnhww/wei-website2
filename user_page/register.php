@@ -23,13 +23,15 @@
     }
 
     if (!$result){
-        echo "register error";
-        echo "Please try again";
+        echo "<h1>register error</h1>";
+        echo "<h1>Please try again</h1>";
     }
     else {
         header("Location:../test.html");
     }
     ?>
-<a href="./register.html">back</a>
+
+<br>
+<button href='../test.html'>back</button>
 </body>
 </html>
