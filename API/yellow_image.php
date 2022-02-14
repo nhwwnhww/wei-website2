@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #page_1 {
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
+    <title>under 18 image</title>
 </head>
 <body>
 <?php
@@ -43,6 +37,6 @@ $ok4 = $ok3['original'];
 ?>
 <a href="<?php echo $ok4?>" target="_blank"><button>image</button></a>
 <div id="page_1"></div>
-<img src="<?php echo $ok4?>" alt="error">
+<img src="<?php echo $ok4?>" alt="error" style="height: 1080px;">
 </body>
 </html>
