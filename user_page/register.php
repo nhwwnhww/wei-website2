@@ -19,6 +19,8 @@
 
         // email checker
         $regex="/([a-z0-9]*[-_.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[.][a-z]{2,3}([.][a-z]{2})?/i";
+        // mobile checker
+        $mobile_checker = $mobile;
 
         // errors check 
         if(empty($username) || empty($mobile) || empty($email) || empty($password) || empty($password2)){
@@ -53,7 +55,7 @@
             echo "<script>window.location='register.html';</script>";
         }
         // check the legality of phone numbers
-        else if (!$mobile="/^1[0-9]{10}$/"){
+        else if (!$mobile_checker="/^1[0-9]{10}$/"){
             echo "<script>alert('Your type a invalid number, please check again');</script>";
             echo "<script>window.location='register.html';</script>";
         }
@@ -80,12 +82,14 @@
             mysqli_query($conn,"set names utf8");
 
             // insert user information
-            $sqlinsert = "INSERT INTO `user_table`(`username`, `mobile`, `email`, `password`) VALUES ({$username},{$mobile},{$email},{$password})";
+            $sqlinsert = "INSERT INTO `user_table`(`username`, `mobile`, `email`, `password`) VALUES ('{$username}','{$mobile}','{$email}','{$password}')";
+            $result = mysqli_query($conn,$sqlinsert);
             if(! $result )
-                        {
-                        die('Could not enter data: ' . mysqli_error($conn));
-                        }
+                {
+                die('Could not enter data: ' . mysqli_error($conn));
+                }
             echo "Congratulations on your successful registration\n";
+            echo "<script>alert('Congratulations on your successful registration')</script>";
             echo "<script>window.location='login.html'</script>";
             // close mysqli
             mysqli_close($conn);
