@@ -12,11 +12,23 @@
         }
         #image {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100vw;
+        }
+        .yellow {
+            width: 20%;
+            height: auto;
+        }
+        .yellow img{
+            width: 100%;
+            height: auto;
         }
 
-        .yellow {
-            width: 25%;
+        @media only screen and (max-device-width: 700px) {
+            .yellow {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -26,15 +38,16 @@
     $search = $_POST['search'];
     $r18 = $_POST['r18'];
     $num = $_POST['num'];
+    $size = $_POST['size'];
 
     $url = "https://api.lolicon.app/setu/v2";
     
     // edit on url
     if (empty($search)){
-        $url = $url . "?r18=" . $r18 . "&num=" . $num;
+        $url = $url . "?r18=" . $r18 . "&num=" . $num. "&size=" . $size;
     }
     else {
-        $url = $url . "?tag=" . $search . "&r18=" . $r18. "&num=" . $num;
+        $url = $url . "?tag=" . $search . "&r18=" . $r18. "&num=" . $num. "&size=" . $size;
     }
     
     // send api request
@@ -50,6 +63,8 @@
 
     // decode data
     $arr = json_decode($json,true);
+
+    // var_dump($arr);
     
 ?>
 
@@ -57,7 +72,7 @@
     <?php 
         for ($i = 0; $i < $num; $i++){
             echo "<div class='yellow'>";
-            echo "<img src='" . $arr['data'][$i]['urls']['original'] . "' alt='error'>";
+            echo "<img src='" . $arr['data'][$i]['urls'][$size] . "' alt='error'>";
             echo "</div>";
         }
     ?>

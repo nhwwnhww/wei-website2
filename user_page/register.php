@@ -74,7 +74,7 @@
         $rows = mysqli_num_rows($result); 
         if($rows>0) {
             echo "<script>alert('The username has already been registered, please change a username and register again')</script>";
-            echo "<script>window.location='index.html'</script>";
+            echo "<script>window.location='register.html'</script>";
         }
         else {
             echo "Username is available\n";

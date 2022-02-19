@@ -30,6 +30,30 @@
             }
             echo "<script>window.location='login.html';</script>";
         }
+
+        // link to database
+        $conn = new mysqli("localhost","nhwwnhww","123Wjnhwwnhww","website");
+
+        $sql = "SELECT `username`, `mobile`, `email`, `password` FROM `user_table` WHERE `username` = '{$username}' AND `password` = '{$password}'";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_num_rows($result);
+        if (!$row>0){
+            echo "<script>alert('Wrong user name or password, please try again')</script>";
+            echo "<script>window.location='login.html'</script>";
+        }
+        else{
+            if(! $result )
+            {
+            die('Could not enter data: ' . mysqli_error($conn));
+            }
+            echo "Congratulations on your successful login\n";
+            echo "<script>alert('Congratulations on your successful login')</script>";
+            echo "<script>window.location='../home_page/home.php'</script>";
+            // close mysqli
+            mysqli_close($conn);
+        }
+        
+
     ?>
 </body>
 </html>

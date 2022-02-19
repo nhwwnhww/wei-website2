@@ -21,7 +21,8 @@
 </head>
 <body>
     <form action="get_image.php" method="post">
-        <input type="text" placeholder="input your type" name="search">
+        <h2>Input your type</h2>
+        <input type="text" placeholder="Please use English" name="search">
         <br>
         r18: <select name="r18" id="">
             <option value="0" selected>false</option>
@@ -29,13 +30,23 @@
             <option value="2">mix</option>
         </select>
         <br>
-        r18: <select name="num" id="">
+        num: <select name="num" id="">
             <option value="1" selected>1</option>
             <option value="2">2</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
             <option value="100">100</option>
+        </select>
+        <br>
+        size: <select name="size" id="">
+            <option value="original">original</option>
+            <option value="regular">regular</option>
+            <option value="small" selected>small</option>
+            <option value="thumb">thumb</option>
+            <option value="mini">mini</option>
         </select>
         <br>
         <button type="submit">get yellow image</button>
