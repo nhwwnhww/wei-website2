@@ -16,7 +16,6 @@
             width: 100vw;
         }
         .yellow {
-            width: 20%;
             height: auto;
         }
         .yellow img{
@@ -31,6 +30,28 @@
             }
         }
     </style>
+    <?php
+    // display column
+    $column = $_POST['column'];
+
+    if ($column == 1){
+        $width = 100;
+    }
+    else if ($column == 2){
+        $width = 50;
+    }
+    else if ($column == 3){
+        $width = 33;
+    }
+    else if ($column == 4){
+        $width = 25;
+    }
+    else {
+        $width = 20;
+    }
+
+    echo "<style>.yellow{width:{$width}%}</style>"
+?>
 </head>
 <body>
 <?php
@@ -77,6 +98,5 @@
         }
     ?>
 </div>
-
 </body>
 </html>
